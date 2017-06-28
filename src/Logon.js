@@ -4,19 +4,24 @@ class Logon extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {value: ''};
+    this.state = {
+      name: '',
+      email: ''
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
  
   handleChange(event) {
-    this.setState({value: event.target.value})
+    this.setState({[event.target.name]: event.target.value})
   }
 
   handleSubmit(event) {
-    alert(`this name was submitted ${this.state.value}`);
+    alert(`this name was submitted ${this.state.name}, and the email was ${this.state.email}`);
     event.preventDefault();
+    this.setState({name: '', email: ''})
+
     // this is where you make an ajax call to the node server
   }
 
@@ -48,7 +53,11 @@ class Logon extends Component {
         <form onSubmit={this.handleSubmit}>
           <label>
             Name:
-            <input type='text' value={this.state.value} onChange={this.handleChange} />
+            <input type='text' value={this.state.name} name='name' onChange={this.handleChange} />
+          </label>
+          <label>
+            Email:
+            <input type='text' value={this.state.email} name='email' onChange={this.handleChange} />
           </label>
           <input type='submit' value='Submit form here' />
         </form>

@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Logon from './Logon.js';
+import athletes from './data/athletes';
 
 class App extends Component {
   render() {
+console.log(athletes);
     return (
       <div className="App">
         <div className="App-header">
@@ -17,6 +19,10 @@ class App extends Component {
 
         <div>
           <Logon />
+        </div>
+
+        <div>
+          {athletes.map(athleteData => athleteData.name)}
         </div>
       </div>
     );

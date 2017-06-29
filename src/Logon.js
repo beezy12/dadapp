@@ -23,8 +23,16 @@ class Logon extends Component {
     this.setState({name: '', email: ''})
 
     // this is where you make an ajax call to the node server
+/*
+    $.ajax({
+      url: 'api/person',
+      data
+    
+    });
+*/
   }
 
+// https://html5hive.org/how-to-submit-forms-and-save-data-with-react-js-and-node-js/
 
 /*
   handleDonationSubmit: function(donation) {
